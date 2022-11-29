@@ -16,6 +16,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
+
             <Route path="*" element={<h1> PAGE NOT FOUND</h1>} />
           </Routes>
         </Router>

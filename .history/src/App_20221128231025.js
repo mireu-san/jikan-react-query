@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./Home";
+import { default } from "./Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <QueryClientProvider client={client}>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<default />} />
             <Route path="*" element={<h1> PAGE NOT FOUND</h1>} />
           </Routes>
         </Router>

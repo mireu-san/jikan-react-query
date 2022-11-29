@@ -16,6 +16,8 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<h1> PAGE NOT FOUND</h1>} />
           </Routes>
         </Router>
