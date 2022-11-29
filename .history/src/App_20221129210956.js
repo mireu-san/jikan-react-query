@@ -12,7 +12,7 @@ function App() {
       <h1>Star Wars Info</h1>
       <Navbar setPage={setPage} />
       <span>
-        API: <a href="http://swapi.dev/api/">http://swapi.dev/api/ </a>
+        <a href="http://swapi.dev/api/people/"> API: </a>
       </span>
       <div className="content">
         {page === "planets" ? <Planets /> : <People />}

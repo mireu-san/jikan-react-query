@@ -1,6 +1,5 @@
 import React from "react";
 import { useQuery } from "react-query";
-import Planet from "./Planet";
 
 const fetchPlanets = async () => {
   const res = await fetch("http://swapi.dev/api/planets/");
@@ -15,17 +14,10 @@ const Planets = () => {
     <div>
       <h2>Planets</h2>
 
-      {status === "loading" && <div>Loading data...</div>}
+      {status === "loading" && <div>Error fetching data</div>}
 
-      {status === "error" && <div>Error fetching data!</div>}
-
-      {status === "success" && (
-        <div>
-          {data.results.map((planet) => (
-            <Planet key={planet.name} planet={planet} />
-          ))}
-        </div>
-      )}
+      {status === "error" && <div>Error fetching data</div>}
+      <p>{status}</p>
     </div>
   );
 };

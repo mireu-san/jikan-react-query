@@ -1,4 +1,5 @@
 import React from "react";
+
 import App from "./App";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { createRoot } from "react-dom/client";
@@ -13,5 +14,6 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <App />
     </QueryClientProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
