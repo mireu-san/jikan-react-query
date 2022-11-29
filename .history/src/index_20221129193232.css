@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #222;
+    color: white;
+    text-align: center;
+}
+
+.App {
+    width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+button {
+    margin: 0 10px;
+    background: transparent;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.content {
+    text-align: left;
+}

@@ -1,22 +1,14 @@
-import React, { useState } from "react";
-import Navbar from "./components/Navbar";
-import Planets from "./components/Planets";
-import People from "./components/People";
-import "./index.css";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
-  const [page, setPage] = useState();
-
-  return (
-    <div className="App">
-      <h1>Star Wars Info</h1>
-      <Navbar setPage={setPage} />
-      <div className="content">
-        {page === "planets" ? <Planets /> : <People />}
-      </div>
-    </div>
+  const { isLoading, error, data } = useQuery("movieList", () =>
+    fetch("https://yts.mx/api/v2/list_movies.json?with_images=true").then(
+      (res) => res.json()
+    )
   );
 }
+
 export default App;
 
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";

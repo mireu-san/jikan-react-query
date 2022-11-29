@@ -1,23 +1,19 @@
-import React, { useState } from "react";
-import Navbar from "./components/Navbar";
-import Planets from "./components/Planets";
-import People from "./components/People";
-import "./index.css";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 function App() {
-  const [page, setPage] = useState();
+  const { isLoading, error, data } = useQuery("anime", () =>
+    axios("https://random.dog/woof.json")
+  );
 
+  if (error) return <h1> Error: {error.message}, try again!</h1>;
+  if (isLoading) return <h1> Loading... </h1>;
   return (
-    <div className="App">
-      <h1>Star Wars Info</h1>
-      <Navbar setPage={setPage} />
-      <div className="content">
-        {page === "planets" ? <Planets /> : <People />}
-      </div>
+    <div>
+      <img src={data.url} />
     </div>
   );
 }
-export default App;
 
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import { Home } from "./Home";

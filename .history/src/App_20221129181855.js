@@ -1,22 +1,33 @@
-import React, { useState } from "react";
-import Navbar from "./components/Navbar";
-import Planets from "./components/Planets";
-import People from "./components/People";
-import "./index.css";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
-  const [page, setPage] = useState();
+  const { isLoading, error, data } = useQuery("movieList", () =>
+    fetch("https://yts.mx/api/v2/list_movies.json?with_images=true").then(
+      (res) => res.json()
+    )
+  );
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
 
   return (
-    <div className="App">
-      <h1>Star Wars Info</h1>
-      <Navbar setPage={setPage} />
-      <div className="content">
-        {page === "planets" ? <Planets /> : <People />}
-      </div>
+    <div>
+      <ul>
+        {data.data.movies.map((movie, idx) => (
+          <li key={idx}>
+            <h5>{movie.title_long}</h5>
+            <img src={movie.large_cover_image} alt="" />
+            <p>장르: {movie.genres[0]}</p>
+            <p>상영시간 : {movie.runtime}분</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
+
 export default App;
 
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
