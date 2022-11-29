@@ -17,6 +17,9 @@ function App() {
       <div className="content">
         {page === "planets" ? <Planets /> : <People />}
       </div>
+      <div className="Axios">
+        <h1>testing Axios + react query</h1>
+      </div>
     </div>
   );
 }
