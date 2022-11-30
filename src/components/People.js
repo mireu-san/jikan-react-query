@@ -1,10 +1,17 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Person from "./Person";
+import axios from "axios";
+
+// const fetchPeople = async () => {
+//   const res = await fetch("http://swapi.dev/api/people/");
+//   return res.json();
+// };
 
 const fetchPeople = async () => {
-  const res = await fetch("http://swapi.dev/api/people/");
-  return res.json();
+  return await axios.get("http://swapi.dev/api/people/").then((respond) => {
+    return respond.data;
+  });
 };
 
 const People = () => {
