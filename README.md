@@ -2,6 +2,8 @@ Jikan Anime Search Page = 아니메 컴셋 (Anime Comsat)
 였으나, 커뮤니티 내에서 '공사중이니 불안정 할 수 있다' 라 해서 다른 API로 구성 되고 있습니다.
 
 - react-query (tanstack 아님)
+- if cors policy violation error occurs, restart browser.
+(For now, I assume this is due to react hook loading issue in accordance with https://www.geeksforgeeks.org/reactjs-cors-options/)
 
 
 For the log regarding this repository:
