@@ -2,14 +2,16 @@ import React from "react";
 import { useQuery } from "react-query";
 import Planet from "./Planet";
 import axios from "axios";
-
+// import cors from "cors";
 // const fetchPlanets = async () => {
 //   const res = await fetch("http://swapi.dev/api/planets/");
 //   return res.json();
 // };
 
+const baseurl = "http://swapi.dev/api";
+
 const fetchPlanets = async () => {
-  return await axios.get("http://swapi.dev/api/planets/").then((respond) => {
+  return await axios.get(`${baseurl}/planets/`).then((respond) => {
     return respond.data;
   });
 };
