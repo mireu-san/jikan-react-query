@@ -8,7 +8,7 @@ import axios from "axios";
 //   return res.json();
 // };
 
-const baseurl = "http://swapi.dev/api";
+const baseurl = "https://swapi.dev/api";
 
 const fetchPlanets = async () => {
   return await axios.get(`${baseurl}/planets/`).then((respond) => {

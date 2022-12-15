@@ -9,7 +9,7 @@ import axios from "axios";
 // };
 
 const fetchPeople = async () => {
-  return await axios.get("http://swapi.dev/api/people/").then((respond) => {
+  return await axios.get("https://swapi.dev/api/people/").then((respond) => {
     return respond.data;
   });
 };
